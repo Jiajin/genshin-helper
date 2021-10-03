@@ -5,9 +5,7 @@ const GemQuality = ({ type, quality, value, onChangeHandler }) => {
     <div className="gem-single__type">
       <img
         className="gem__image"
-        src={
-          process.env.PUBLIC_URL + `./ascensionGems/Item_${type}_${quality}.png`
-        }
+        src={`../ascensionGems/Item_${type}_${quality}.png`}
         alt=""
       ></img>
       <div>{quality}:</div>
