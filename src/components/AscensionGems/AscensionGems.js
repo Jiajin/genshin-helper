@@ -48,7 +48,7 @@ const AscensionGems = ({ gemType }) => {
     copyState.maxFragment = parseInt(
       (copyState.computeSilver -
         copyState.maxGemstone * 27 -
-        copyState.maxChunk * 3) /
+        copyState.maxChunk * 9) /
         3,
       10
     );
