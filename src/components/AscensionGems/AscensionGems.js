@@ -62,25 +62,25 @@ const AscensionGems = ({ gemType }) => {
       <div className="gems-input-container">
         <GemQuality
           type={gemType}
-          quality="sliver"
+          quality="Sliver"
           value={gemFamily.sliver}
           onChangeHandler={onChangeHandler}
         />
         <GemQuality
           type={gemType}
-          quality="fragment"
+          quality="Fragment"
           value={gemFamily.fragment}
           onChangeHandler={onChangeHandler}
         />
         <GemQuality
           type={gemType}
-          quality="chunk"
+          quality="Chunk"
           value={gemFamily.chunk}
           onChangeHandler={onChangeHandler}
         />
         <GemQuality
           type={gemType}
-          quality="gemstone"
+          quality="Gemstone"
           value={gemFamily.gemstone}
           onChangeHandler={onChangeHandler}
         />
@@ -89,28 +89,28 @@ const AscensionGems = ({ gemType }) => {
         <div className="gem__title">Max Gemstones: </div>
         <OutputGemQuality
           gemType={gemType}
-          quality="gemstone"
+          quality="Gemstone"
           value={gemFamily.maxGemstone}
         />
         <OutputGemQuality
           gemType={gemType}
-          quality="chunk"
+          quality="Chunk"
           value={gemFamily.maxChunk}
         />
         <OutputGemQuality
           gemType={gemType}
-          quality="fragment"
+          quality="Fragment"
           value={gemFamily.maxFragment}
         />
         <OutputGemQuality
           gemType={gemType}
-          quality="sliver"
+          quality="Sliver"
           value={gemFamily.maxSliver}
         />
         <div className="gem__title">Total Slivers: </div>
         <OutputGemQuality
           gemType={gemType}
-          quality="sliver"
+          quality="Sliver"
           value={gemFamily.computeSilver}
         />
       </div>
