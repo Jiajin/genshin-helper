@@ -18,16 +18,16 @@ const AscensionGems = ({ gemType }) => {
   const onChangeHandler = (quality, value) => {
     let copyState = gemFamily;
     switch (quality) {
-      case "sliver":
+      case "Sliver":
         copyState = { ...copyState, sliver: value };
         break;
-      case "fragment":
+      case "Fragment":
         copyState = { ...copyState, fragment: value };
         break;
-      case "chunk":
+      case "Chunk":
         copyState = { ...copyState, chunk: value };
         break;
-      case "gemstone":
+      case "Gemstone":
         copyState = { ...copyState, gemstone: value };
         break;
       default:
