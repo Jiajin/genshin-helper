@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import AscensionGems from "./components/AscensionGems/AscensionGems";
+
+import FishGoals from "./components/FIshGoals";
+import PondList from "./components/PondList";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <FishGoals />
+      <PondList /> */}
+      <AscensionGems gemType="Agnidus_Agate" />
+      <AscensionGems gemType="Varunada_Lazurite" />
+      <AscensionGems gemType="Vajrada_Amethyst" />
+      <AscensionGems gemType="Vayuda_Turquoise" />
+      <AscensionGems gemType="Shivada_Jade" />
+      <AscensionGems gemType="Prithiva_Topaz" />
     </div>
   );
 }

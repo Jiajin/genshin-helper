@@ -1,0 +1,21 @@
+.pond-container {
+  display: grid;
+  grid-template-columns: 25% 25% 50%;
+  margin: auto;
+  border: solid 1px black;
+}
+.pond__image {
+  max-height: 250px;
+  page-break-inside: avoid;
+}
+.pond__name {
+  padding: 30px 0;
+  text-align: center;
+}
+.pond__fishes {
+  /* vertical-align: middle; */
+  justify-content: flex-start;
+}
+.pond__fish {
+  max-height: 50px;
+}
