@@ -3,14 +3,9 @@ import AscensionGemsMain from "./components/AscensionGems/AscensionGemsMain";
 import Navigation from "./components/Navigation";
 import FishGoals from "./components/FIshGoals";
 import PondList from "./components/PondList";
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  Redirect,
-  NavLink,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import WeaponCalcMain from "./components/WeaponUpgradeCalc/WeaponCalcMain";
 
 function App() {
   return (
@@ -26,8 +21,8 @@ function App() {
      </div> */}
       <Navigation></Navigation>
       <Routes>
-        <Route path="/home" element={<AscensionGemsMain />} />
-        <Route path="/preferences" element={<AscensionGemsMain />} />
+        <Route path="/element" element={<AscensionGemsMain />} />
+        <Route path="/weapon" element={<WeaponCalcMain />} />
         <Route path="/404" render={() => <div>Page Not Found</div>} />
         {/* <Redirect to="/404"></Redirect> */}
       </Routes>

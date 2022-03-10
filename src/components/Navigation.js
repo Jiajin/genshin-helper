@@ -13,8 +13,11 @@ const Navigation = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/home">
-              Home
+            <Nav.Link as={Link} to="/element">
+              Ele Gems
+            </Nav.Link>
+            <Nav.Link as={Link} to="/weapon">
+              Weapon Calculator
             </Nav.Link>
             {/* <Nav.Link as={Link} to="/preferences">
               Preferences

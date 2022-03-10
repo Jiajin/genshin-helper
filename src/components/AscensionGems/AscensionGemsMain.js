@@ -3,7 +3,7 @@ import AscensionGems from "./AscensionGems";
 
 const AscensionGemsMain = () => {
   return (
-    <div class="body">
+    <div className="body">
       <AscensionGems gemType="Agnidus_Agate" />
       <AscensionGems gemType="Varunada_Lazurite" />
       <AscensionGems gemType="Vajrada_Amethyst" />
