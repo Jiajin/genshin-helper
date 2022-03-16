@@ -1,0 +1,43 @@
+.materials_parent {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+.materials_row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+.materials_label {
+  text-align: center;
+}
+.gems-output-container {
+  margin: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.materials_single {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin: 5px;
+  padding: 2px;
+}
+
+.static {
+  margin: 5px 40px 5px 10px;
+}
+.mat__image {
+  max-height: 75px;
+}
+.mat__input {
+  height: 20px;
+  width: 40px;
+  margin: 0px 5px;
+}
