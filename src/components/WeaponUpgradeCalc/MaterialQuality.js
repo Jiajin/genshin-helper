@@ -11,7 +11,6 @@ const MaterialQuality = ({ type, quality, value, onChangeHandler }) => {
       <div>x</div>
       <input
         className="mat__input"
-        type="number"
         value={value}
         onChange={(e) => onChangeHandler(quality, e.target.value)}
       ></input>
