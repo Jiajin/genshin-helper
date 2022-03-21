@@ -31,8 +31,20 @@ const sum = (one, two) => {
   };
 };
 
+const minus = (one, two) => {
+  console.log(one);
+  console.log(two);
+  return {
+    low: one.low - two.low,
+    medium: one.medium - two.medium,
+    high: one.high - two.high,
+    max: one.max - two.max,
+  };
+};
+
 module.exports = {
   getMostLow,
   getMostMax,
   sum,
+  minus,
 };

@@ -4,52 +4,50 @@ import "./WeaponCalc.css";
 import FourTierMaterialBox from "./FourTierMaterialBox";
 
 const WeaponCalcMain = () => {
-  const materialCostMap = [
-    { level: "fourty", cost: { low: 3, medium: 0, high: 0, max: 0 } },
-    { level: "fifty", cost: { low: 3, medium: 3, high: 0, max: 0 } },
-    { level: "sixty", cost: { low: 3, medium: 6, high: 0, max: 0 } },
-    { level: "seventy", cost: { low: 3, medium: 6, high: 3, max: 0 } },
-    { level: "eighty", cost: { low: 3, medium: 6, high: 6, max: 0 } },
-    { level: "ninety", cost: { low: 3, medium: 6, high: 6, max: 4 } },
-  ];
-  const fourStarCostMap = {
-    fourty: {
+  const fourStarCostMap = [
+    {
+      low: 0,
+      medium: 0,
+      high: 0,
+      max: 0,
+    },
+    {
       low: 3,
       medium: 0,
       high: 0,
       max: 0,
     },
-    fifty: {
+    {
       low: 3,
       medium: 3,
       high: 0,
       max: 0,
     },
-    sixty: {
+    {
       low: 3,
       medium: 6,
       high: 0,
       max: 0,
     },
-    seventy: {
+    {
       low: 3,
       medium: 6,
       high: 3,
       max: 0,
     },
-    eighty: {
+    {
       low: 3,
       medium: 6,
       high: 6,
       max: 0,
     },
-    ninety: {
+    {
       low: 3,
       medium: 6,
       high: 6,
       max: 4,
     },
-  };
+  ];
   const weaponLevelData = [
     { value: 20, desc: "0/20" },
     { value: 40, desc: "20/40" },
@@ -59,30 +57,80 @@ const WeaponCalcMain = () => {
     { value: 80, desc: "70/80" },
     { value: 90, desc: "80/90" },
   ];
-  //todo Replace totalcost with actual model
-  const totalCost = fourStarCostMap.ninety;
+  const weaponLevelArray = ["20", "40", "50", "60", "70", "80", "90"];
+
+  //todo Onchange for dropdown Desired and Current level
+  const [maxLevel, setMaxLevel] = useState("90");
+  const [currentLevel, setCurrentLevel] = useState("20");
+  const [domainMatCost, setDomainMatCost] = useState(fourStarCostMap[6]);
+  const maxOnChangeHandler = (value) => {
+    if (weaponLevelArray.includes(value)) {
+      setMaxLevel(value);
+    }
+    getDomainMatCost(value, currentLevel);
+  };
+  const currentOnChangeHandler = (value) => {
+    if (weaponLevelArray.includes(value)) {
+      setCurrentLevel(value);
+    }
+    getDomainMatCost(maxLevel, value);
+  };
+  const getDomainMatCost = (max, current) => {
+    console.log(max);
+    console.log(weaponLevelArray.indexOf(max));
+    console.log(fourStarCostMap[weaponLevelArray.indexOf(max)]);
+    console.log(fourStarCostMap[weaponLevelArray.indexOf(current)]);
+    let newCost = threesConvertor.minus(
+      fourStarCostMap[weaponLevelArray.indexOf(max)],
+      fourStarCostMap[weaponLevelArray.indexOf(current)]
+    );
+    console.log(newCost);
+    setDomainMatCost(newCost);
+  };
   //todo Replace material type with actual model
   const materialType = "coral";
 
   return (
     <div className="body">
-      {/* <div>What is your desired max weapon level?</div>
-      <label>
-        <select id="dropdown">
+      <div className="materials_row">
+        <div className="materials_label">
+          What is your desired max weapon level?{" "}
+        </div>
+      </div>
+      <label className="materials_row">
+        <select
+          id="maxDropdown"
+          value={maxLevel}
+          onChange={(e) => maxOnChangeHandler(e.target.value)}
+        >
           {weaponLevelData.map((level) => (
             <option value={level.value}>{level.desc}</option>
           ))}
         </select>
       </label>
-      <input
-        type="number"
-        className="weaponCalc__input"
-        value={weaponLevelData[6]}
-      ></input> */}
+      <div className="materials_row">
+        <div className="materials_label">
+          What is your current weapon level?{" "}
+        </div>
+      </div>
+      <label className="materials_row">
+        <select
+          id="inputDropdown"
+          value={currentLevel}
+          onChange={(e) => currentOnChangeHandler(e.target.value)}
+        >
+          {weaponLevelData.map((level) => (
+            <option value={level.value}>{level.desc}</option>
+          ))}
+        </select>
+      </label>
       {/* <div>What is your current max weapon level?</div>
       <div>
       </div> */}
-      <FourTierMaterialBox materialType={materialType} totalCost={totalCost} />
+      <FourTierMaterialBox
+        materialType={materialType}
+        totalCost={domainMatCost}
+      />
     </div>
   );
 };
