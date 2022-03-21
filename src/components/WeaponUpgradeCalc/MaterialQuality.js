@@ -5,7 +5,7 @@ const MaterialQuality = ({ type, quality, value, onChangeHandler }) => {
     <div className="materials_single">
       <img
         className="mat__image"
-        src={`../weaponMaterials/Item_${type}_${quality}.png`}
+        src={`../weaponMaterials/item_${type}_${quality}.png`}
         alt=""
       ></img>
       <div>x</div>

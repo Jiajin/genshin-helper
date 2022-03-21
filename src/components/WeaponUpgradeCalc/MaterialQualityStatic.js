@@ -5,7 +5,7 @@ const MaterialQualityStatic = ({ type, quality, value }) => {
     <div className="materials_single static">
       <img
         className="mat__image"
-        src={`../weaponMaterials/Item_${type}_${quality}.png`}
+        src={`../weaponMaterials/item_${type}_${quality}.png`}
         alt=""
       ></img>
       <div className="single_number">x{value}</div>
