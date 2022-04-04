@@ -182,18 +182,21 @@ const WeaponCalcMain = () => {
         </select>
       </label>
       <FourTierMaterialBox
+        title={"Domain Materials"}
         materialName={domainMat}
         totalCost={domainMatCost}
         type={"domain"}
         folder={"weaponMaterials"}
       />
       <FourTierMaterialBox
+        title={"Common Monster Materials"}
         materialName={commonMonsterMat}
         totalCost={commonMatCost}
         type={"common"}
         folder={"monsterMaterials"}
       />
       <FourTierMaterialBox
+        title={"Rare Monster Materials"}
         materialName={rareMonsterMat}
         totalCost={rareMatCost}
         type={"rare"}

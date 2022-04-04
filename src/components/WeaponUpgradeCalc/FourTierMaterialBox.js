@@ -3,7 +3,13 @@ import MaterialQuality from "./MaterialQuality";
 import MaterialQualityStatic from "./MaterialQualityStatic";
 import threesConvertor from "../utils/threesConvertor";
 
-const FourTierMaterialBox = ({ materialName, totalCost, type, folder }) => {
+const FourTierMaterialBox = ({
+  title,
+  materialName,
+  totalCost,
+  type,
+  folder,
+}) => {
   //Determine if all 4 tiers should be shown
   //If type == Domain, show all
   let showMax = true;
@@ -88,7 +94,7 @@ const FourTierMaterialBox = ({ materialName, totalCost, type, folder }) => {
     <div className="body">
       <div className="materials_parent">
         <div className="materials_row">
-          <div className="materials_label">Amount Required: </div>
+          <div className="materials_label">{title} Required: </div>
         </div>
         <div className="materials_row">
           {showMax && (
