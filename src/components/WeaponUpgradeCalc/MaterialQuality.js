@@ -4,7 +4,9 @@ const MaterialQuality = ({ name, quality, value, folder, onChangeHandler }) => {
   return (
     <div className="materials_single">
       <img
-        className="mat__image"
+        className={`mat__image ${
+          folder === "weaponMaterials" ? "weapon_" + quality : quality
+        }`}
         src={`../${folder}/item_${name}_${quality}.png`}
         alt=""
       ></img>

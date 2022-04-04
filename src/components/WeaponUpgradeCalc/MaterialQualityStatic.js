@@ -4,7 +4,9 @@ const MaterialQualityStatic = ({ name, quality, value, folder }) => {
   return (
     <div className="materials_single static">
       <img
-        className="mat__image"
+        className={`mat__image ${
+          folder === "weaponMaterials" ? "weapon_" + quality : quality
+        }`}
         src={`../${folder}/item_${name}_${quality}.png`}
         alt=""
       ></img>

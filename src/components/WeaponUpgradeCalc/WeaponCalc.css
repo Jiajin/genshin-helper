@@ -30,11 +30,38 @@
   padding: 2px;
 }
 
+.low {
+  background-color: #7d8995;
+}
+.medium {
+  background-color: #568b6d;
+}
+.high {
+  background-color: #4c90a8;
+}
+.max {
+  background-color: #af82c2;
+}
+
+.weapon_low {
+  background-color: #568b6d;
+}
+.weapon_medium {
+  background-color: #4c90a8;
+}
+.weapon_high {
+  background-color: #af82c2;
+}
+.weapon_max {
+  background-color: #bc8b4f;
+}
 .static {
   margin: 5px 40px 5px 10px;
 }
 .mat__image {
   max-height: 75px;
+  border-radius: 15px;
+  margin: 0px 3px;
 }
 .mat__input {
   height: 20px;
