@@ -3,7 +3,14 @@ import MaterialQuality from "./MaterialQuality";
 import MaterialQualityStatic from "./MaterialQualityStatic";
 import threesConvertor from "../utils/threesConvertor";
 
-const FourTierMaterialBox = ({ materialType, totalCost }) => {
+const FourTierMaterialBox = ({ materialName, totalCost, type, folder }) => {
+  //Determine if all 4 tiers should be shown
+  //If type == Domain, show all
+  let showMax = true;
+  let showLow = true;
+  if (type === "rare") showLow = false;
+  else if (type === "common") showMax = false;
+
   const [inputMats, setInputMats] = useState({
     max: 0,
     high: 0,
@@ -84,80 +91,104 @@ const FourTierMaterialBox = ({ materialType, totalCost }) => {
           <div className="materials_label">Amount Required: </div>
         </div>
         <div className="materials_row">
+          {showMax && (
+            <MaterialQualityStatic
+              name={materialName}
+              quality={"max"}
+              value={totalCost.max}
+              folder={folder}
+            />
+          )}
           <MaterialQualityStatic
-            type={materialType}
-            quality={"max"}
-            value={totalCost.max}
-          />
-          <MaterialQualityStatic
-            type={materialType}
+            name={materialName}
             quality={"high"}
             value={totalCost.high}
+            folder={folder}
           />
           <MaterialQualityStatic
-            type={materialType}
+            name={materialName}
             quality={"medium"}
             value={totalCost.medium}
+            folder={folder}
           />
-          <MaterialQualityStatic
-            type={materialType}
-            quality={"low"}
-            value={totalCost.low}
-          />
+          {showLow && (
+            <MaterialQualityStatic
+              name={materialName}
+              quality={"low"}
+              value={totalCost.low}
+              folder={folder}
+            />
+          )}
         </div>
         <div className="materials_row">
           <div className="materials_label">Currently you have: </div>
         </div>
         <div className="materials_row">
+          {showMax && (
+            <MaterialQuality
+              name={materialName}
+              quality={"max"}
+              value={inputMats.max}
+              folder={folder}
+              onChangeHandler={onChangeHandler}
+            />
+          )}
           <MaterialQuality
-            type={materialType}
-            quality={"max"}
-            value={inputMats.max}
-            onChangeHandler={onChangeHandler}
-          />
-          <MaterialQuality
-            type={materialType}
+            name={materialName}
             quality={"high"}
             value={inputMats.high}
+            folder={folder}
             onChangeHandler={onChangeHandler}
           />
           <MaterialQuality
-            type={materialType}
+            name={materialName}
             quality={"medium"}
             value={inputMats.medium}
+            folder={folder}
             onChangeHandler={onChangeHandler}
           />
-          <MaterialQuality
-            type={materialType}
-            quality={"low"}
-            value={inputMats.low}
-            onChangeHandler={onChangeHandler}
-          />
+          {showLow && (
+            <MaterialQuality
+              name={materialName}
+              quality={"low"}
+              value={inputMats.low}
+              folder={folder}
+              onChangeHandler={onChangeHandler}
+            />
+          )}
         </div>
         <div className="materials_row">
           <div>{displayMsg}</div>
         </div>
         <div className="materials_row">
+          {showMax && (
+            <MaterialQualityStatic
+              name={materialName}
+              quality={"max"}
+              value={resultMats.max}
+              folder={folder}
+            />
+          )}
           <MaterialQualityStatic
-            type={materialType}
-            quality={"max"}
-            value={resultMats.max}
-          />
-          <MaterialQualityStatic
-            type={materialType}
+            name={materialName}
             quality={"high"}
             value={resultMats.high}
+            folder={folder}
           />
           <MaterialQualityStatic
-            type={materialType}
+            name={materialName}
             quality={"medium"}
             value={resultMats.medium}
+            folder={folder}
           />
-          <MaterialQualityStatic
-            type={materialType}
-            quality={"low"}
-            value={resultMats.low}
-          />
+          {showLow && (
+            <MaterialQualityStatic
+              name={materialName}
+              quality={"low"}
+              value={resultMats.low}
+              folder={folder}
+            />
+          )}
         </div>
       </div>
     </div>

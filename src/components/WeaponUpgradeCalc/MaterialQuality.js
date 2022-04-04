@@ -1,11 +1,11 @@
 import React from "react";
 
-const MaterialQuality = ({ type, quality, value, onChangeHandler }) => {
+const MaterialQuality = ({ name, quality, value, folder, onChangeHandler }) => {
   return (
     <div className="materials_single">
       <img
         className="mat__image"
-        src={`../weaponMaterials/item_${type}_${quality}.png`}
+        src={`../${folder}/item_${name}_${quality}.png`}
         alt=""
       ></img>
       <div>x</div>
