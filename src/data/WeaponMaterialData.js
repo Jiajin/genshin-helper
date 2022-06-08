@@ -1133,6 +1133,24 @@ const WeaponMaterialData = [
     RareMonsterMat: "leyline",
     CommonMonsterMat: "honey",
   },
+  {
+    Name: "Aqua Simulacra",
+    Type: "Bow",
+    Url: "/wiki/Aqua_Simulacra",
+    Rarity: "5",
+    DomainMat: "pillar",
+    RareMonsterMat: "statuette",
+    CommonMonsterMat: "spectral",
+  },
+  {
+    Name: "Fading Twilight",
+    Type: "Bow",
+    Url: "/wiki/Fading_Twilight",
+    Rarity: "4",
+    DomainMat: "aerosiderite",
+    RareMonsterMat: "sacrificial",
+    CommonMonsterMat: "scroll",
+  },
 ];
 
 export default WeaponMaterialData;
