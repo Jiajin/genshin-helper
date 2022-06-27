@@ -2,7 +2,7 @@ import React, { useState, Component } from "react";
 import Select from "react-select";
 import threesConvertor from "../utils/threesConvertor";
 import "./WeaponCalc.css";
-import FourTierMaterialBox from "./FourTierMaterialBox";
+import FourTierMaterialBox from "../common/FourTierMaterialBox";
 import WeaponMaterialData from "../../data/WeaponMaterialData";
 import {
   threeStarCommonMonsterMatCost,
