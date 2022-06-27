@@ -15,14 +15,14 @@ const getMostMax = (showMax, all) => {
     high: 0,
     max: 0,
   };
-  if (showMax){
+  if (showMax) {
     result.max = parseInt(all / 27, 10);
     result.high = parseInt((all - result.max * 27) / 9, 10);
     result.medium = parseInt((all - result.max * 27 - result.high * 9) / 3, 10);
     result.low = all % 3;
-  } else{
-    result.high = parseInt(all  / 9, 10);
-    result.medium = parseInt((all -  result.high * 9) / 3, 10);
+  } else {
+    result.high = parseInt(all / 9, 10);
+    result.medium = parseInt((all - result.high * 9) / 3, 10);
     result.low = all % 9;
   }
   return result;
@@ -37,9 +37,22 @@ const sum = (one, two) => {
   };
 };
 
+const sumArray = (array, prop) => {
+  return array.reduce(function (a, b) {
+    return a + b[prop];
+  }, 0);
+};
+
+const sumCosts = (array) => {
+  return {
+    low: sumArray(array, "low"),
+    medium: sumArray(array, "medium"),
+    high: sumArray(array, "high"),
+    max: sumArray(array, "max"),
+  };
+};
+
 const minus = (one, two) => {
-  console.log(one);
-  console.log(two);
   return {
     low: one.low - two.low,
     medium: one.medium - two.medium,
@@ -52,5 +65,6 @@ module.exports = {
   getMostLow,
   getMostMax,
   sum,
+  sumCosts,
   minus,
 };

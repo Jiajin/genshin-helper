@@ -1,0 +1,30 @@
+
+.level-input {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 5px;
+    padding: 2px;
+    width: 50px;
+  }
+
+  .checkbox{
+    border: 1px solid #006400;
+    padding: 5px 15px 5px 15px;
+    flex: 0 0 50px;
+    cursor: pointer;
+    background-color: lightgrey;
+  }
+
+  .selected{
+    background-color: lightgreen;
+  }
+
+  .level-button{
+    border: 1px solid darkseagreen;
+    padding: 5px 15px 5px 15px;
+    cursor: pointer;
+    background-color: lightseagreen;
+  }

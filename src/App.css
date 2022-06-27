@@ -21,7 +21,7 @@
   }
 }
 .body {
-  padding-top: 55px;
+  padding-top: 20px;
 }
 .App-header {
   background-color: #282c34;
@@ -38,5 +38,9 @@
   color: #61dafb;
 }
 
-.single_number {
+.page-row {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
 }

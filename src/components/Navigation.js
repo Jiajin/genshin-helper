@@ -4,7 +4,7 @@ import React from "react";
 
 const Navigation = () => {
   return (
-    <Navbar collapseOnSelect fixed="top">
+    <Navbar collapseOnSelect>
       {" "}
       <Container>
         <Navbar.Brand as={Link} to="/home">
@@ -18,6 +18,9 @@ const Navigation = () => {
             </Nav.Link>
             <Nav.Link as={Link} to="/weapon">
               Weapon Calculator
+            </Nav.Link>
+            <Nav.Link as={Link} to="/talent">
+              Talent Calculator
             </Nav.Link>
             {/* <Nav.Link as={Link} to="/preferences">
               Preferences

@@ -6,6 +6,7 @@ import PondList from "./components/PondList";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import WeaponCalcMain from "./components/WeaponUpgradeCalc/WeaponCalcMain";
+import TalentCalcMain from "./components/TalentCalculator/TalentCalcMain";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route path="/element" element={<AscensionGemsMain />} />
         <Route path="/weapon" element={<WeaponCalcMain />} />
+        <Route path="/talent" element={<TalentCalcMain />} />
         <Route path="/404" render={() => <div>Page Not Found</div>} />
         {/* <Redirect to="/404"></Redirect> */}
       </Routes>
