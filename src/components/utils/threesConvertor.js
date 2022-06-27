@@ -8,17 +8,23 @@ const getMostLow = (all) => {
   return maximumNumberOfLow;
 };
 
-const getMostMax = (all) => {
+const getMostMax = (showMax, all) => {
   let result = {
     low: 0,
     medium: 0,
     high: 0,
     max: 0,
   };
-  result.max = parseInt(all / 27, 10);
-  result.high = parseInt((all - result.max * 27) / 9, 10);
-  result.medium = parseInt((all - result.max * 27 - result.high * 9) / 3, 10);
-  result.low = all % 3;
+  if (showMax){
+    result.max = parseInt(all / 27, 10);
+    result.high = parseInt((all - result.max * 27) / 9, 10);
+    result.medium = parseInt((all - result.max * 27 - result.high * 9) / 3, 10);
+    result.low = all % 3;
+  } else{
+    result.high = parseInt(all  / 9, 10);
+    result.medium = parseInt((all -  result.high * 9) / 3, 10);
+    result.low = all % 9;
+  }
   return result;
 };
 

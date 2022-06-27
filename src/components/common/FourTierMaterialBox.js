@@ -76,14 +76,14 @@ const FourTierMaterialBox = ({
 
     if (reqNo < haveNo) {
       //Enough, display upconverted but retain the required amount w/o converting
-      let remainder = threesConvertor.getMostMax(haveNo - reqNo);
+      let remainder = threesConvertor.getMostMax(showMax, haveNo - reqNo);
       let result = threesConvertor.sum(remainder, req);
       result.sufficient = true;
 
       return result;
     } else {
       //Not enough, display upconverted
-      let result = threesConvertor.getMostMax(haveNo);
+      let result = threesConvertor.getMostMax(showMax, haveNo);
       result.sufficient = false;
 
       return result;
