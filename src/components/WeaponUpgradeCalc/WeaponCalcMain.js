@@ -17,6 +17,7 @@ import {
 } from "../../data/WeaponCostData";
 
 const WeaponCalcMain = () => {
+  //populate weapon dropdown
   const weaponOptions = WeaponMaterialData.map((weapon) => {
     return { value: weapon.Name, label: weapon.Name };
   });
@@ -32,7 +33,17 @@ const WeaponCalcMain = () => {
   ];
   const weaponLevelArray = ["20", "40", "50", "60", "70", "80", "90"];
 
-  //vars for Selected Weapon
+  //vars for Selected Weapon (WIP)_
+  const [weaponCalcModel, setWeaponCalcModel] = useState({
+    weapon: WeaponMaterialData[0],
+    maxLevel: "90",
+    currentLevel: "20",
+    cost: {
+      domainMat: fourStarDomainMatCost[6],
+      commonMatCost: fourStarCommonMonsterMatCost[6],
+      rareMatCost: fourStarRareMonsterMatCost[6],
+    },
+  });
   const [weapon, setWeapon] = useState(WeaponMaterialData[0]);
   const [domainMat, setDomainMat] = useState(WeaponMaterialData[0].DomainMat);
   const [rareMonsterMat, setRareMonsterMat] = useState(
