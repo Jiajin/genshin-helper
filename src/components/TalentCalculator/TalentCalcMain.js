@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Select from "react-select";
 import "./TalentCalc.css";
 import threesConvertor from "../utils/threesConvertor";
 import FourTierMaterialBox from "../common/FourTierMaterialBox";
@@ -11,7 +10,7 @@ import {
 } from "../../data/TalentCostData";
 import TalentRow from "./TalentRow";
 
-const talentLevelArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const talentLevelArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
 // Func for calc cost
 const getMatCost = (max, current, costsArray) => {
@@ -102,9 +101,9 @@ const TalentCalcMain = () => {
   // Page model
   const [talentCalcModel, setTalentCalcModel] = useState({
     //character: class containing talent/monster mat
-    normalAttack: new Talent(1, 10, true),
-    skill: new Talent(1, 10, true),
-    burst: new Talent(1, 10, true),
+    normalAttack: new Talent("1", "10", true),
+    skill: new Talent("1", "10", true),
+    burst: new Talent("1", "10", true),
     get totalCost() {
       // Calculates dynamically
       return calcTotalCost([this.normalAttack, this.skill, this.burst]);
@@ -155,13 +154,12 @@ const TalentCalcMain = () => {
   };
   const setAllLevel = (current, max) => {
     setTalentCalcModel({
-      ...talentCalcModel,
       normalAttack: new Talent(current, max, true),
       skill: new Talent(current, max, true),
       burst: new Talent(current, max, true),
       totalCost: calcTotalCost([
-        talentCalcModel.normalAttack,
-        talentCalcModel.skill,
+        new Talent(current, max, true),
+        new Talent(current, max, true),
         new Talent(current, max, true),
       ]),
     });
@@ -174,38 +172,38 @@ const TalentCalcMain = () => {
         Click below to use one of the preset Talent levels
       </div>
       <div className="page-row">
-        <div className="level-button" onClick={(e) => setAllLevel(1, 6)}>
+        <div className="level-button" onClick={(e) => setAllLevel("1", "6")}>
           1 - 6
         </div>
-        <div className="level-button" onClick={(e) => setAllLevel(1, 8)}>
+        <div className="level-button" onClick={(e) => setAllLevel("1", "8")}>
           1 - 8
         </div>
-        <div className="level-button" onClick={(e) => setAllLevel(1, 9)}>
+        <div className="level-button" onClick={(e) => setAllLevel("1", "9")}>
           1 - 9
         </div>
-        <div className="level-button" onClick={(e) => setAllLevel(1, 10)}>
+        <div className="level-button" onClick={(e) => setAllLevel("1", "10")}>
           1 - 10
         </div>
       </div>
       <div className="page-row">
-        <div className="level-button" onClick={(e) => setAllLevel(6, 8)}>
+        <div className="level-button" onClick={(e) => setAllLevel("6", "8")}>
           6 - 8
         </div>
-        <div className="level-button" onClick={(e) => setAllLevel(6, 9)}>
+        <div className="level-button" onClick={(e) => setAllLevel("6", "9")}>
           6 - 9
         </div>
-        <div className="level-button" onClick={(e) => setAllLevel(6, 10)}>
+        <div className="level-button" onClick={(e) => setAllLevel("6", "10")}>
           6 - 10
         </div>
       </div>
       <div className="page-row">
-        <div className="level-button" onClick={(e) => setAllLevel(8, 9)}>
+        <div className="level-button" onClick={(e) => setAllLevel("8", "9")}>
           8 - 9
         </div>
-        <div className="level-button" onClick={(e) => setAllLevel(8, 10)}>
+        <div className="level-button" onClick={(e) => setAllLevel("8", "10")}>
           8 - 10
         </div>
-        <div className="level-button" onClick={(e) => setAllLevel(9, 10)}>
+        <div className="level-button" onClick={(e) => setAllLevel("9", "10")}>
           9 - 10
         </div>
       </div>
@@ -218,21 +216,21 @@ const TalentCalcMain = () => {
         selected={talentCalcModel.normalAttack.selected}
         currentLevel={talentCalcModel.normalAttack.selectLevel}
         desiredLevel={talentCalcModel.normalAttack.desiredLevel}
-        onChangeHandler={setNormalAttackLevel}
+        setFunction={setNormalAttackLevel}
       />
       <TalentRow
         title={"Skill"}
         selected={talentCalcModel.skill.selected}
         currentLevel={talentCalcModel.skill.selectLevel}
         desiredLevel={talentCalcModel.skill.desiredLevel}
-        onChangeHandler={setSkillLevel}
+        setFunction={setSkillLevel}
       />
       <TalentRow
         title={"Burst"}
         selected={talentCalcModel.burst.selected}
         currentLevel={talentCalcModel.burst.selectLevel}
         desiredLevel={talentCalcModel.burst.desiredLevel}
-        onChangeHandler={setBurstLevel}
+        setFunction={setBurstLevel}
       />
       <FourTierMaterialBox
         title={"Domain Materials"}
