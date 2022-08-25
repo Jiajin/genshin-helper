@@ -28,9 +28,10 @@
   max-height: 75px;
 }
 .gem__input {
-  height: 20px;
-  width: 40px;
-  margin: 0px 5px;
+  font-size:14px;
+  height: 30px;
+  width: 45px;
+  margin: 0px 2px;
 }
 .gem__title {
   margin: 10px;
