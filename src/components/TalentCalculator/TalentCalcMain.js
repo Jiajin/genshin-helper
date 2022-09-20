@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
+import { useSearchParams } from "react-router-dom";
 import "./TalentCalc.css";
 import threesConvertor from "../utils/threesConvertor";
 import FourTierMaterialBox from "../common/FourTierMaterialBox";
@@ -14,7 +15,7 @@ import TalentRow from "./TalentRow";
 
 const talentLevelArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
-//populate character dropdown
+// populate character dropdown
 const charOptions = TalentMaterialData.map((char) => {
   return { value: char.Id, label: char.Name };
 });
@@ -85,9 +86,20 @@ const calcTotalCost = (array) => {
 };
 
 const TalentCalcMain = () => {
+  // URL Params to set default char
+  const [searchParams, setSearchParams] = useSearchParams();
+  const charParam = searchParams.get("char");
+
+  // Default char is newest 5*
+  let defaultChar = TalentMaterialData.find((x) => x.Id === "tighnari");
+
+  if (TalentMaterialData.find((x) => x.Id === charParam)) {
+    defaultChar = TalentMaterialData.find((x) => x.Id === charParam);
+  }
+
   // Page model
   const [talentCalcModel, setTalentCalcModel] = useState({
-    character: TalentMaterialData[3],
+    character: defaultChar,
     normalAttack: new Talent("1", "10", true),
     skill: new Talent("1", "10", true),
     burst: new Talent("1", "10", true),
@@ -141,6 +153,7 @@ const TalentCalcMain = () => {
   };
   const setAllLevel = (current, max) => {
     setTalentCalcModel({
+      ...talentCalcModel,
       normalAttack: new Talent(current, max, true),
       skill: new Talent(current, max, true),
       burst: new Talent(current, max, true),
@@ -156,23 +169,22 @@ const TalentCalcMain = () => {
   const charDropdownOnchange = (e) => {
     //Load the selected weapon's icon and costs
     let selectedChar = TalentMaterialData.find((x) => x.Id === e.value);
-    // setWeapon(charOptions.find((x) => x.Name === e.value));
-    // setDomainMat(selectedChar.DomainMat);
-    // setRareMonsterMat(selectedChar.RareMonsterMat);
-    // setCommonMonsterMat(selectedChar.CommonMonsterMat);
+
     setTalentCalcModel({
       ...talentCalcModel,
       character: selectedChar,
     });
 
-    console.log(selectedChar);
+    setSearchParams({ char: e.value });
   };
 
   return (
     <div className="body">
       <Select
         className="select"
-        defaultValue={talentCalcModel.character.Id}
+        defaultValue={charOptions.find(
+          (x) => x.value === talentCalcModel.character.Id
+        )}
         isSearchable={true}
         isClearable={false}
         options={charOptions}
