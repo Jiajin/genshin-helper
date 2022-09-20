@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Select from "react-select";
 import "./TalentCalc.css";
 import threesConvertor from "../utils/threesConvertor";
 import FourTierMaterialBox from "../common/FourTierMaterialBox";
@@ -8,9 +9,15 @@ import {
   weeklyBossMatCost,
   moraCost,
 } from "../../data/TalentCostData";
+import TalentMaterialData from "../../data/TalentMaterialData";
 import TalentRow from "./TalentRow";
 
 const talentLevelArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+
+//populate character dropdown
+const charOptions = TalentMaterialData.map((char) => {
+  return { value: char.Id, label: char.Name };
+});
 
 // Func for calc cost
 const getMatCost = (max, current, costsArray) => {
@@ -45,27 +52,6 @@ class Talent {
   }
 }
 
-const calcTotalCost2 = (talent1, talent2, talent3) => {
-  return {
-    domainMat: threesConvertor.sumCosts([
-      talent1.cost.domainMat,
-      talent2.cost.domainMat,
-      talent3.cost.domainMat,
-    ]),
-    commonMat: threesConvertor.sumCosts([
-      talent1.cost.commonMat,
-      talent2.cost.commonMat,
-      talent3.cost.commonMat,
-    ]),
-    weeklyBossMatCost:
-      talent1.cost.weeklyBossMatCost +
-      talent2.cost.weeklyBossMatCost +
-      talent3.cost.weeklyBossMatCost,
-    moraCost:
-      talent1.cost.moraCost + talent2.cost.moraCost + talent3.cost.moraCost,
-  };
-};
-
 const calcTotalCost = (array) => {
   const domainMat = threesConvertor.sumCosts(
     array
@@ -89,6 +75,7 @@ const calcTotalCost = (array) => {
     .reduce(function (a, b) {
       return a + b;
     }, 0);
+
   return {
     domainMat: domainMat,
     commonMat: commonMat,
@@ -100,7 +87,7 @@ const calcTotalCost = (array) => {
 const TalentCalcMain = () => {
   // Page model
   const [talentCalcModel, setTalentCalcModel] = useState({
-    //character: class containing talent/monster mat
+    character: TalentMaterialData[3],
     normalAttack: new Talent("1", "10", true),
     skill: new Talent("1", "10", true),
     burst: new Talent("1", "10", true),
@@ -166,8 +153,31 @@ const TalentCalcMain = () => {
   };
   // End Onchange handlers for level selectors
 
+  const charDropdownOnchange = (e) => {
+    //Load the selected weapon's icon and costs
+    let selectedChar = TalentMaterialData.find((x) => x.Id === e.value);
+    // setWeapon(charOptions.find((x) => x.Name === e.value));
+    // setDomainMat(selectedChar.DomainMat);
+    // setRareMonsterMat(selectedChar.RareMonsterMat);
+    // setCommonMonsterMat(selectedChar.CommonMonsterMat);
+    setTalentCalcModel({
+      ...talentCalcModel,
+      character: selectedChar,
+    });
+
+    console.log(selectedChar);
+  };
+
   return (
     <div className="body">
+      <Select
+        className="select"
+        defaultValue={talentCalcModel.character.Id}
+        isSearchable={true}
+        isClearable={false}
+        options={charOptions}
+        onChange={charDropdownOnchange}
+      ></Select>
       <div className="page-row mt-2">
         Click below to use one of the preset Talent levels
       </div>
@@ -234,14 +244,14 @@ const TalentCalcMain = () => {
       />
       <FourTierMaterialBox
         title={"Domain Materials"}
-        materialName={"light"}
+        materialName={talentCalcModel.character.DomainMat}
         totalCost={talentCalcModel.totalCost.domainMat}
         type={"rare"}
         folder={"talentMaterials"}
       />
       <FourTierMaterialBox
         title={"Common Monster Materials"}
-        materialName={"arrowhead"}
+        materialName={talentCalcModel.character.CommonMonsterMat}
         totalCost={talentCalcModel.totalCost.commonMat}
         type={"common"}
         folder={"monsterMaterials"}
