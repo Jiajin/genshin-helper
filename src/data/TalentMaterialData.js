@@ -108,7 +108,7 @@ const TalentMaterialData = [
     Name: "Yoimiya",
     Day: "mon/thu",
     Region: "Inazuma",
-    DomainMat: "transcience",
+    DomainMat: "transience",
     CommonMonsterMat: "scroll",
   },
   {
@@ -116,7 +116,7 @@ const TalentMaterialData = [
     Name: "Thoma",
     Day: "mon/thu",
     Region: "Inazuma",
-    DomainMat: "transcience",
+    DomainMat: "transience",
     CommonMonsterMat: "hoarder",
   },
   {
@@ -124,7 +124,7 @@ const TalentMaterialData = [
     Name: "Sangonomiya Kokomi",
     Day: "mon/thu",
     Region: "Inazuma",
-    DomainMat: "transcience",
+    DomainMat: "transience",
     CommonMonsterMat: "spectral",
   },
   {
@@ -132,7 +132,7 @@ const TalentMaterialData = [
     Name: "Shikanoin Heizou",
     Day: "mon/thu",
     Region: "Inazuma",
-    DomainMat: "transcience",
+    DomainMat: "transience",
     CommonMonsterMat: "hoarder",
   },
   {
