@@ -30,6 +30,13 @@
   padding: 2px;
 }
 
+.materials_button {
+  border: 2px double black;
+  margin: 2px;
+  background-color: grey;
+  color: white;
+}
+
 .low {
   background-color: #7d8995;
 }
