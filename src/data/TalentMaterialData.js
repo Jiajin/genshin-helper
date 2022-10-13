@@ -312,6 +312,22 @@ const TalentMaterialData = [
     CommonMonsterMat: "red",
   },
   {
+    Id: "nahida",
+    Name: "Nahida",
+    Day: "tues/fri",
+    Region: "Sumeru",
+    DomainMat: "ingenuity",
+    CommonMonsterMat: "spores",
+  },
+  {
+    Id: "layla",
+    Name: "Layla",
+    Day: "tues/fri",
+    Region: "Sumeru",
+    DomainMat: "ingenuity",
+    CommonMonsterMat: "scroll",
+  },
+  {
     Id: "lisa",
     Name: "Lisa",
     Day: "wed/sat",

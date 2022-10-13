@@ -236,6 +236,7 @@ const WeaponMaterialData = [
   {
     Name: "Makhaira Aquamarine",
     Type: "claymore",
+    Url: "",
     Rarity: "4",
     DomainMat: "scarab",
     RareMonsterMat: "chaos",
@@ -478,9 +479,19 @@ const WeaponMaterialData = [
   {
     Name: "Wandering Evenstar",
     Type: "Catalyst",
+    Url: "",
     Rarity: "4",
     DomainMat: "plate",
     RareMonsterMat: "fungal",
+    CommonMonsterMat: "spores",
+  },
+  {
+    Name: "A Thousand Floating Dreams",
+    Type: "Catalyst",
+    Url: "",
+    Rarity: "5",
+    DomainMat: "plate",
+    RareMonsterMat: "primalprism",
     CommonMonsterMat: "spores",
   },
   {
@@ -693,6 +704,7 @@ const WeaponMaterialData = [
   {
     Name: "Missive Windspear",
     Type: "polearm",
+    Url: "",
     Rarity: "4",
     DomainMat: "tooth",
     RareMonsterMat: "statuette",
@@ -701,6 +713,7 @@ const WeaponMaterialData = [
   {
     Name: "Staff of the Scarlet Sands",
     Type: "polearm",
+    Url: "",
     Rarity: "5",
     DomainMat: "plate",
     RareMonsterMat: "chaos",
@@ -970,17 +983,19 @@ const WeaponMaterialData = [
   {
     Name: "Key of Khaj-Nisut",
     Type: "sword",
+    Url: "",
     Rarity: "5",
     DomainMat: "talisman",
-    RareMonsterMat: "prism",
+    RareMonsterMat: "primalprism",
     CommonMonsterMat: "red",
   },
   {
     Name: "Xiphos' Moonlight",
     Type: "sword",
+    Url: "",
     Rarity: "4",
     DomainMat: "talisman",
-    RareMonsterMat: "prism",
+    RareMonsterMat: "primalprism",
     CommonMonsterMat: "red",
   },
   {

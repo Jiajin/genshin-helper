@@ -91,7 +91,7 @@ const TalentCalcMain = () => {
   const charParam = searchParams.get("char");
 
   // Default char is newest 5*
-  let defaultChar = TalentMaterialData.find((x) => x.Id === "tighnari");
+  let defaultChar = TalentMaterialData.find((x) => x.Id === "nahida");
 
   if (TalentMaterialData.find((x) => x.Id === charParam)) {
     defaultChar = TalentMaterialData.find((x) => x.Id === charParam);
